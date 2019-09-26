@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: peer1
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: peer1
+    statusPageUrl: https://${eureka.hostname}/info
+    healthCheckUrl: https://${eureka.hostname}/health
+    homePageUrl: https://${eureka.hostname}/
+  client:
+    serviceUrl:
+      defaultZone: http://peer2:8762/eureka/, http://peer3:8763/eureka/

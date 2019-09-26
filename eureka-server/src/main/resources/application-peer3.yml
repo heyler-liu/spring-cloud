@@ -1,0 +1,16 @@
+spring:
+  profiles: peer3
+server:
+  port: 8763
+eureka:
+  instance:
+    hostname: peer3
+    statusPageUrl: https://${eureka.hostname}/info
+    healthCheckUrl: https://${eureka.hostname}/health
+    homePageUrl: https://${eureka.hostname}/
+
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/, http://peer2:8762/eureka/
